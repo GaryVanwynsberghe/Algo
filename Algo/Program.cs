@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algo.Dossier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,46 +9,34 @@ namespace Algo
 {
     class Program
     {
+
+
         static void Main(string[] args)
-        {
-        }
-        private static int GererMenu(List<MenuItem> menu)
-        {
-            foreach (MenuItem ligne in menu)
-            {
-                Console.WriteLine($"{ligne.Numero}-{ligne.Libelle}");
-            }
+        {                       
+            Menu menu = new Menu();
+            menu.InsererLigne(new MenuItem { Numero = 1, Libelle = "menu 1" });
+            menu.InsererLigne(new MenuItem { Numero = 2, Libelle = "menu 2" });
+            menu.InsererLigne(new MenuItem { Numero = 3, Libelle = "menu 3" });
+            menu.InsererLigne(new MenuItem { Numero = 4, Libelle = "menu 4" });
 
-            int choix;
-            choix = int.Parse(Console.ReadLine());
-
-            foreach (MenuItem item in menu)
-            {
-                if (choix == item.Numero)
-                {
-                    return choix;
-                }
-                    
-            }
-            return -1;
-
-            //return menu.SingleOrDefault(x => x.Numero == choix) != null ? choix : -1;                    
-                      
-               
+            menu.AfficherMenu();
             
-        }        
+            int resultat = menu.Choisir();
+            Console.WriteLine(resultat);
+            Console.ReadLine();
+
+        }
+
         
     }
-    class MenuItem
-    {
-        public int Numero { get; set; }
-        public string Libelle { get; set; }
-    }
-
-
-
-
-
-
-
+             
+        
 }
+    
+
+
+
+
+
+
+
