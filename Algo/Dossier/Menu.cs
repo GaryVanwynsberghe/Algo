@@ -34,6 +34,7 @@ namespace Algo.Dossier
         /// <returns>Le choix de l'utilisateur</returns>
     public int Choisir()
         {
+            Console.WriteLine();
             Console.WriteLine("Saisir un choix : ");
             int choix;
             choix = int.Parse(Console.ReadLine());
